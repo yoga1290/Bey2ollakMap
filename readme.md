@@ -8,10 +8,12 @@ Timepiece graphs of averages of vehicle speeds according to days & hours.
 # Google App-Engine/NoSQL datastore:
 
 
-Space-wise, fixed per 100-meter areas since:
-    Average= ( Average * Number_of_readings + New_Record) / (Number_of_readings+1)
-    Number_of_readings = Number_of_readings + 1
+Space-wise, fixed per 100-meter radius:
+
+     Average= ( Average * Number_of_readings + New_Record) / (Number_of_readings+1)
+     Number_of_readings = Number_of_readings + 1
 
 
-Speed-wise, I'm a Binary search for retrieving data
+Speed-wise, I'm doing a Binary search for retrieving data & w a separate node telling the order of their keys, insertion should be in log(n) as well..
+
 ![Binary search](readme/nosql.png)
