@@ -29,6 +29,7 @@ Imagine you have 2Sx2S Canvas and want to draw a SxS Canvas in its center:
 
 … guess this gives the basic idea on what I'm doing [here](android/src/yoga1290/bey2ollak/Charts.java)
 
+![ClockKey](readme/clockkey.png)
 
 ## [URLThread.java](android/src/yoga1290/bey2ollak/URLThread.java)
 
