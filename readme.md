@@ -17,6 +17,10 @@ Timepiece graphs of averages of vehicle speeds according to days & hours.
 ## [Charts.java](android/src/yoga1290/bey2ollak/Charts.java)
 
 This class is responsible for generating the 7 Timepiece graphs inside each other…
+
+![days.png](readme/days.png)
+![time.png](readme/time.png)
+
 Imagine you have 2Sx2S Canvas and want to draw a SxS Canvas in its center:
 ![timepiece.png](readme/timepiece.png)
 
@@ -28,8 +32,6 @@ Imagine you have 2Sx2S Canvas and want to draw a SxS Canvas in its center:
 
 
 … guess this gives the basic idea on what I'm doing [here](android/src/yoga1290/bey2ollak/Charts.java)
-
-![ClockKey](readme/clockkey.png)
 
 ## [URLThread.java](android/src/yoga1290/bey2ollak/URLThread.java)
 
