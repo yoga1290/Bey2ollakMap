@@ -1,14 +1,9 @@
-Android App for building statistics on how busy the roads are by generating Timepiece graphs on a Google Map.
-Timepiece graphs of averages of vehicle speeds according to days & hours.
+![http://developer.android.com/images/brand/ar_generic_rgb_wo_60.png](https://play.google.com/store/apps/details?id=yoga1290.bey2ollak)
+![http://developer.android.com/images/brand/en_app_rgb_wo_60.png](https://play.google.com/store/apps/details?id=yoga1290.bey2ollak)
 
+Android App for building stats from previously collected traffic data from other users!
 
->	Please note, I'm just getting started… so, better UI & detailed code (w/out keys) later!… Feel free to contribute & issue a bug!
-
-
-# Outline:
-
-+	Android App (Client-side)
-+	App Engine (Server-side)
+>	Please note, I'm just getting started… so, better UI & detailed code (w/out keys) later!… Feel free to issue a bug!
 
 
 # Android App
@@ -16,7 +11,7 @@ Timepiece graphs of averages of vehicle speeds according to days & hours.
 
 ## [Charts.java](android/src/yoga1290/bey2ollak/Charts.java)
 
-This class is responsible for generating the 7 Timepiece graphs inside each other…
+This class is responsible for generating the 7 Timepiece graphs inside each other; each day is represented on a different radius…
 
 ![days.png](readme/days.png)
 ![time.png](readme/time.png)
@@ -78,6 +73,7 @@ Space-wise, fixed per 100-meter radius:
      Number_of_readings = Number_of_readings + 1
 
 
-Speed-wise, I'm doing a Binary search for retrieving data & w a separate node telling the order of their keys, insertion should be in log(n) as well..
+Speed-wise, I'm doing a Binary search to get the lower/higher indices in a XY-based sorted entities; that’s log(n) &  loop for nodes between the 2 boundaries; that depends on the area radius used..
 
+![Binary search](readme/bsearch.png)
 ![Binary search](readme/nosql.png)
