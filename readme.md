@@ -1,5 +1,5 @@
-![http://developer.android.com/images/brand/ar_generic_rgb_wo_60.png](https://play.google.com/store/apps/details?id=yoga1290.bey2ollak)
-![http://developer.android.com/images/brand/en_app_rgb_wo_60.png](https://play.google.com/store/apps/details?id=yoga1290.bey2ollak)
+![http://developer.android.com/images/brand/ar_generic_rgb_wo_60.png](http://play.google.com/store/apps/details?id=yoga1290.bey2ollak)
+![http://developer.android.com/images/brand/en_app_rgb_wo_60.png](http://play.google.com/store/apps/details?id=yoga1290.bey2ollak)
 
 Android App for building stats from previously collected traffic data from other users!
 
@@ -20,11 +20,11 @@ Imagine you have 2Sx2S Canvas and want to draw a SxS Canvas in its center:
 ![timepiece.png](readme/timepiece.png)
 
 …same thing goes w the drawArc: 
-
+```java
     canvas.drawArc(
        new RectF( S-S/2 ,S-S/2, S+S/2, S+S/2)
        ,StartAngle, 28, true, Paint);
-
+```
 
 … guess this gives the basic idea on what I'm doing [here](android/src/yoga1290/bey2ollak/Charts.java)
 
@@ -35,7 +35,7 @@ To prevent freezing the UI, URL connections are carried in separate threads:
 ![URLThread.png](readme/URLThread.png)
 
 This class makes it handy to startup GET/POST connection & change the UI thread on callback in a single statement, just like this:
-
+```java
      final Activity currentActivity=this;
      new URLThread("URL HERE", new URLThread_CallBack() 
      { 
@@ -57,7 +57,7 @@ This class makes it handy to startup GET/POST connection & change the UI thread 
     		); 
     	}
     }, "Optional POST DATA HERE,otherwise GET is used").start();
-
+```
 
 
 
@@ -73,7 +73,8 @@ Space-wise, fixed per 100-meter radius:
      Number_of_readings = Number_of_readings + 1
 
 
-Speed-wise, I'm doing a Binary search to get the lower/higher indices in a XY-based sorted entities; that’s log(n) &  loop for nodes between the 2 boundaries; that depends on the area radius used..
+Speed-wise, to search within a given area, I'm doing a Binary search to get the lower/higher boundaries’ indices in XY-based-sorted entities &  loop for nodes between the 2 boundaries; that depends on the number of nodes in area being used..
 
 ![Binary search](readme/bsearch.png)
+How I keep them sorted:
 ![Binary search](readme/nosql.png)
