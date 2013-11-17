@@ -60,7 +60,7 @@ This class makes it handy to startup GET/POST connection & change the UI thread 
 
 
 
-# App Engine (Server-side)
+# App Engine (Java Servlet)
 
 ## OAuth 2.0 & Social media:
 
