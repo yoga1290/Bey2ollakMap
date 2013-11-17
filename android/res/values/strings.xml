@@ -5,6 +5,7 @@
     <string name="action_settings" translatable="false">Settings</string>
     <string name="hello_world" translatable="false">Hello world!</string>
     <string name="title_activity_main" translatable="false">Bey2ollak Map</string>
-    <string name="title_activity_timepiece">Timepiece</string>
+    <string name="title_activity_timepiece" translatable="false">Timepiece</string>
+    <string name="title_activity_share_trip" translatable="false">Share trip</string>
 
 </resources>
