@@ -69,7 +69,7 @@ I prefer using the standard OAuth 2.0 than Facebook/Foursquare or whatever API; 
 
 ### [ShareTrip.java](android/src/yoga1290/bey2ollak/ShareTrip.java):
 
-Before sharing any post across the social media, it retrieves the required access token which is mapped to the [ANDROID_ID](http://developer.android.com/reference/android/provider/Settings.Secure.html#ANDROID_ID) + [GOOGLE ACCOUNT](http://developer.android.com/reference/android/Manifest.permission.html#GET_ACCOUNTS) from the datastore then starts another connection using the retrieved access token
+Before sharing any post across the social media, it retrieves the required access token which is mapped to the [ANDROID_ID](http://developer.android.com/reference/android/provider/Settings.Secure.html#ANDROID_ID) + [GOOGLE ACCOUNT](http://developer.android.com/reference/android/Manifest.permission.html#GET_ACCOUNTS) from the datastore then starts another connection using the retrieved access token to share the trip
 
 
 ## NoSQL datastore:
