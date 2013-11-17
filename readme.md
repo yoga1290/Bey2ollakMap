@@ -1,5 +1,4 @@
-![http://developer.android.com/images/brand/ar_generic_rgb_wo_60.png](http://play.google.com/store/apps/details?id=yoga1290.bey2ollak)
-![http://developer.android.com/images/brand/en_app_rgb_wo_60.png](http://play.google.com/store/apps/details?id=yoga1290.bey2ollak)
+[Google Play Store](http://play.google.com/store/apps/details?id=yoga1290.bey2ollak)
 
 Android App for building stats from previously collected traffic data from other users!
 
@@ -63,6 +62,15 @@ This class makes it handy to startup GET/POST connection & change the UI thread 
 
 # App Engine (Server-side)
 
+## OAuth 2.0 & Social media:
+
+I prefer using the standard OAuth 2.0 than Facebook/Foursquare or whatever API; it just increases the size of the App and if Facebook wasn’t installed, it’ll open a WebView which is identified as new browser and (in my case) asks to type the Gen-Code or the 2-step verification SMS code!
+.:. so my OAuth 2.0 implementation is written separately here, [facebook.java](AppEngine/src/facebook.java) and [Foursquare.java](AppEngine/src/Foursquare.java)
+
+### [ShareTrip.java](android/src/yoga1290/bey2ollak/ShareTrip.java):
+
+Before sharing any post across the social media, it retrieves the required access token which is mapped to the [ANDROID_ID](http://developer.android.com/reference/android/provider/Settings.Secure.html#ANDROID_ID) + [GOOGLE ACCOUNT](http://developer.android.com/reference/android/Manifest.permission.html#GET_ACCOUNTS) from the datastore then starts another connection using the retrieved access token
+
 
 ## NoSQL datastore:
 
@@ -76,5 +84,10 @@ Space-wise, fixed per 100-meter radius:
 Speed-wise, to search within a given area, I'm doing a Binary search to get the lower/higher boundaries’ indices in XY-based-sorted entities &  loop for nodes between the 2 boundaries; that depends on the number of nodes in area being used..
 
 ![Binary search](readme/bsearch.png)
+
+
 How I keep them sorted:
 ![Binary search](readme/nosql.png)
+
+https://github.com/yoga1290/Fingerprint-Recognition#readme
+https://github.com/yoga1290/Fingerprint-Recognition/blob/master/FR.java#L32
