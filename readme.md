@@ -88,6 +88,3 @@ Speed-wise, to search within a given area, I'm doing a Binary search to get the 
 
 How I keep them sorted:
 ![Binary search](readme/nosql.png)
-
-https://github.com/yoga1290/Fingerprint-Recognition#readme
-https://github.com/yoga1290/Fingerprint-Recognition/blob/master/FR.java#L32
