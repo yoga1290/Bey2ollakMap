@@ -43,7 +43,7 @@ public class Charts
 			ed=S+ (S*i*f/28);
 //			st=S- (S*i*f/42);
 //			ed=S+ (S*i*f/42);
-			System.out.println(i+" : "+(S*i*f/28));
+//			System.out.println(i+" : "+(S*i*f/28));
 			
 			angle=270;
 			for(j=0;j<12;j++)
@@ -72,7 +72,7 @@ public class Charts
 				paint.setColor(Color.GREEN);
 				if(data[i-1][j]<Green)
 					paint.setColor(Color.YELLOW);
-				if(data[i-1][j]<=Red)
+				if(data[i-1][j]<Red)
 					paint.setColor(Color.RED);
 				
 				
@@ -183,10 +183,113 @@ public class Charts
 		return bitmap;
 	}
 	
+	public static Bitmap whiteGraph(int width,int height,int ar[])
+	{
+		Bitmap bitmap=Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+		height-=2;
+		width-=2;
+		Canvas canvas=new Canvas(bitmap);
+		int i,max=1,center=height>>1;
+		
+		for(i=0;i<ar.length;i++)
+			max=Math.max(max,ar[i]);
+		
+		int x,y,ox=0,oy=height;
+		Paint paint=new Paint();
+		paint.setColor(Color.TRANSPARENT);
+		canvas.drawRect(0, 0, width,height, paint);
+		paint.setColor(Color.BLACK);
+		paint.setTextSize(14);
+		
+		for(i=0;i<12;i++)
+		{
+			x=i*width/ar.length;
+			y=height-(ar[i]*height/max);
+			
+			paint.setColor(Color.rgb(255, 127, 0));
+			canvas.drawLine(ox, oy, x, y, paint);
+			
+//			paint.setColor(Color.GRAY);
+//			canvas.drawLine(x, 0, x, height, paint);
+			if(ar[i]>0)
+			{
+				paint.setColor(Color.GRAY);
+				canvas.drawText(ar[i]+"", x, y, paint);
+			}
+			
+			ox=x;
+			oy=y;
+		}
+		for(i=12;i<ar.length;i++)
+		{
+			x=i*width/ar.length;
+			y=height-(ar[i]*height/max);
+			
+			paint.setColor(Color.BLACK);
+			canvas.drawLine(ox, oy, x, y, paint);
+			
+//			paint.setColor(Color.GRAY);
+//			canvas.drawLine(x, 0, x, height, paint);
+			if(ar[i]>0)
+			{
+				paint.setColor(Color.BLACK);
+				canvas.drawText(ar[i]+"", x, y, paint);
+			}
+			
+			ox=x;
+			oy=y;
+		}
+		return bitmap;
+	}
+	
+	//TODO
+	public static Bitmap TimepieceHour(int width,int height,int hour, String txt,int color)
+	{
+		Bitmap bitmap=Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+		Canvas canvas=new Canvas(bitmap);
+		
+		int S=Math.min(width, height)>>1,s=S-(S>>1);
+		Paint paint=new Paint();
+		
+		paint.setColor(Color.TRANSPARENT);
+		canvas.drawRect(0, 0, width,height, paint);
+		
+		paint.setColor(color);//Color.rgb(255, 127, 0));
+		
+		canvas.drawArc(
+				new RectF(0,
+						0,
+						S<<1,
+						S<<1 ) , 0, 360, true, paint);
+		paint.setColor(Color.WHITE);
+		canvas.drawArc(
+				new RectF(2,
+						2,
+						(S<<1)-2,
+						(S<<1)-2 ) , 0, 360, true, paint);
+		
+		 
+		paint.setColor(color);//Color.rgb(255, 127, 0));
+		canvas.drawArc(
+				new RectF(0,
+						0,
+						S<<1,
+						S<<1 ) , hour*360/12+270, 28, true, paint);
+		paint.setColor(Color.WHITE);
+		canvas.drawArc(
+				new RectF(S-(S>>1),
+						S-(S>>1),
+						S+(S>>1),
+						S+(S>>1)) , hour*360/12+270, 28, true, paint);
+		paint.setColor(Color.BLACK);
+		paint.setTextSize(30);
+		canvas.drawText(txt, 0, S, paint);
+		return bitmap;
+	}
+	
 	public static Bitmap getGPAGraph(int width,int height,int ar[])//ar:GPA*100 across terms
 	{
 		Bitmap bitmap=Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
-		
 		Canvas canvas=new Canvas(bitmap);
 		int gcd=ar[0],i,max=0,last=ar[ar.length-1];
 		//get ratio by dividing by Greatest-Common Divisor
